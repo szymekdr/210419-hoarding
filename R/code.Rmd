@@ -1,0 +1,55 @@
+---
+title: "Hoarding analysis"
+author: "Szymon Drobniak"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::robobook:
+      
+      code_folding: hide
+      toc_depth: 3
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, tidy = TRUE)
+options(digits = 2)
+```
+
+## Libraries
+
+```{r libs message = F}
+
+## NOTE: loading warnings suppressed
+## SET YOUR WD FIRST
+
+library(pacman)
+pacman::p_load(MCMCglmm, phytools, geiger, tidyverse, ape)
+
+library(here)
+
+## these are installed via Biocunductor
+library(ggtree)
+library(ggtreeExtra)
+
+here()
+```
+## Data
+
+Loading of the data.
+
+```{r cars}
+here()
+data <- read_csv(here('data', 'hoarding_data_27Jul2020.csv'))
+tree <- read.tree(here('data', 'Stage2_Hackett_MCC_no_neg.tre'))
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
