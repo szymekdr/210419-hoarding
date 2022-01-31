@@ -1,9 +1,0 @@
-#!/bin/bash
-
-#PBS -l select=1:ncpus=4:mem=8gb:walltime=12:00:00
-#PBS -M z3526715@unsw.edu.au
-#PBS -abe
-
-cd $PBS_O_WORKDIR
-
-R CMD BATCH katana_script.R
