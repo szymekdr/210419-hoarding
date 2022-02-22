@@ -23,15 +23,15 @@ A <- vcv.phylo(tree_final)
 
 
 model <- brmsformula(
-  hoarding_status ~ 1 + (1|gr(tip_label, cov = A))
+  hoarding_status ~ brain_size + log(body_weight) #+ (1|gr(tip_label, cov = A))
 )
 
 # get_prior(model, data = data_analysis, family = categorical, data2 = list(A = A))
 
-modelrun <- brm(model, chains = 2, iter = 10000, warmup = 3000, thin = 5,
+modelrun <- brm(model, chains = 2, iter = 2000, warmup = 1000,
                 data = data_analysis,
-                data2 = list(A = A),
+                #data2 = list(A = A),
                 family = categorical,
                 control = list(adapt_delta = 0.9, max_treedepth = 15)
                 )
-
+summary(modelrun)
